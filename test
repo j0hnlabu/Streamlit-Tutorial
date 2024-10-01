@@ -1,0 +1,33 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+def main():
+    st.title("My First Streamlit App")
+
+    st.write("Welcome to this basic Streamlit app!")
+
+    # Add a slider
+    x = st.slider('Select a value', 0, 100, 50)
+    st.write(f"You selected: {x}")
+
+    # Create a simple dataframe
+    df = pd.DataFrame({
+        'first column': list(range(1, 11)),
+        'second column': np.arange(10, 101, 10)
+    })
+
+    # Display the dataframe
+    st.subheader("Here's our dataframe:")
+    st.dataframe(df)
+
+    # Create a line plot
+    st.subheader("And here's a line plot:")
+    fig, ax = plt.subplots()
+    ax.plot(df['first column'], df['second column'])
+    st.pyplot(fig)
+
+if __name__ == "__main__":
+    main()
+    
