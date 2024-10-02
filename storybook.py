@@ -61,7 +61,6 @@ if st.button("Generate Storybook"):
         story = story_gen(prompt)
         cover_prompt = cover_gen(story)
         image_url = image_gen(cover_prompt)
-
     st.image(image_url, caption="Story Cover")
     st.write("### Your Story:")
     st.write(story)
